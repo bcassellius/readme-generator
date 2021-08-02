@@ -44,7 +44,7 @@ const questions = [
     type: 'list',
     name: 'license',
     message: 'Which license would you like to use?',
-    choices: ['MIT', 'GNU', 'GPLv3', 'Unlicense'],
+    choices: ['MIT', 'GNU AGPLv3', 'GNU GPLv3', 'GNU LGPLv3', 'Unlicense'],
   },
   {
     type: 'input',
@@ -78,51 +78,41 @@ const questions = [
 ]
 
 
-function showAnswers() {
-  inquirer.prompt(questions)
-  .then(inquirerResponses => {
-    console.log(inquirerResponses)
-  }
-)}; 
 
-showAnswers();
   
   
 // // TODO: Create a function to write README file
-// // this will write the file
-// const writeFile = fileContent => {
-//   return new Promise((resolve, reject) => {
-//     fs.writeFile('./dist/index.md', fileContent, err => {
-//       // if there's an error, reject the Promise and send the error to the Promise's `.catch()` method
-//       if (err) {
-//         reject (err);
-//         // return out of the function here to make sure the Promise doesn't accidentally execute the resolve() function as well
-//         return;
-//       }    
-//       resolve({
-//         ok: true,
-//         message: 'File created!'
-//       });
-//     });
-//   });
-// };
-// function writeToFile(fileName, data) {
-// }
+const writeFile = fileContent => {
+  return new Promise((resolve, reject) => {
+    fs.writeFile('./dist/index.md', generateMarkdown(readmeObj), err => {
+      console.log("A README is created. Find it in the dist folder!")
+      if (err) throw err
+    });
+  });
+};
 
 
 
 // // TODO: Create a function to initialize app
+
+function showAnswers() {
+  inquirer.prompt(questions)
+  .then(inquirerResponses => {
+    console.log(inquirerResponses)
+    readmeObj = inquirerResponses
+  }
+)}; 
+
 // function init() {
 //   return inquirer
 //   .prompt(questions)
-//   .then(response => {
-//     readmeObj = response
+//   .then(inquirerResponse => {
+//     readmeObj = inquirerResponse
 //   })
 // }
 
-// // Function call to initialize app
 // init();
 
-
+showAnswers();
 
 // // // record video windows + g
