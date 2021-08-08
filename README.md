@@ -21,7 +21,7 @@ This generator can be found on my github page and cloned onto your computer. You
 
 <a name='usage'></a>
 ## Usage
-To use, navigate to the root file where you have saved this project on your computer.  Open a terminal and type <node index>. This will bring up the prompts. Once prompts are answered, a README will be generated in the dist folder.
+To use, navigate to the root file where you have saved this project on your computer.  Open a terminal and type `node index`. This will bring up the prompts. Once prompts are answered, a README will be generated in the dist folder.
 
 <a name='license'></a>
 ## License
