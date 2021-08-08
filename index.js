@@ -1,16 +1,14 @@
-// TODO: Include packages needed for this application
+// packages needed for this application
 const inquirer = require('inquirer');
 const fs = require ('fs');
 const generateMarkdown = require ('./utils/generateMarkdown');
 
-
-
-// TODO: Create an array of questions for user input
+// an array of questions for user input
 const questions = [
   {
     type: 'input',
     name: 'title',
-    message: 'What is the title of your project? (Required)',
+    message: 'What is the title of your project?',
     validate: projectName => {
       if (projectName){
         return true;
@@ -22,7 +20,7 @@ const questions = [
   {
     type: 'input',
     name: 'description',
-    message: 'Provide a description of the project. (Required)',
+    message: 'Provide a description of the project.',
     validate: projectDescription => {
       if (projectDescription){
         return true;
@@ -34,11 +32,25 @@ const questions = [
   {
     type: 'input',
     name: 'installation',
-    message: 'Provide instructions for application installation.'
+    message: 'Provide instructions for application installation.',
+    validate: projectInstallation => {
+      if (projectInstallation){
+        return true;
+      } else {
+        console.log('Please provide installation instructions!')
+      }
+    }
   },
   { type: 'input',
     name: 'usage',
     message: 'Provide information for application usage.',
+    validate: projectUsage => {
+      if (projectUsage) {
+        return true;
+      } else {
+        console.log('Please provide information for usage!')
+      }
+    }
   },
   {
     type: 'list',
@@ -48,8 +60,20 @@ const questions = [
   },
   {
     type: 'input',
-    name: 'link',
-    message: 'Enter the GitHub username associated with your project. (Required)',
+    name: 'contributing',
+    message: 'Provide information for contributions to this project.',
+    validate: projectContributing => {
+      if (projectContributing) {
+        return true;
+      } else {
+        console.log('Please provide information on contributions made to this project!')
+      }
+    }
+},
+  {
+    type: 'input',
+    name: 'github',
+    message: 'Enter the GitHub username associated with your project.',
     validate: githubInput => {
       if (githubInput) {
         return true;
@@ -61,12 +85,19 @@ const questions = [
   {
     type: 'input',
     name: 'tests',
-    message: 'Provide information on tests for your app here.'
+    message: 'Provide information on tests for your app here.',
+    validate: projectTests => {
+      if (projectTests) {
+        return true;
+      } else {
+        console.log('Please provide information on tests!')
+      }
+    }
   },
   {
     type:'input',
     name: 'questions',
-    message: 'Enter an email address where questions can be sent. (Required)',
+    message: 'Enter an email address where questions can be sent.',
     validate: emailInput => {
       if (emailInput) {
         return true;
@@ -76,43 +107,30 @@ const questions = [
     }        
   },  
 ]
-
-
-
   
-  
-// // TODO: Create a function to write README file
+// a function to write README file
 const writeFile = fileContent => {
   return new Promise((resolve, reject) => {
-    fs.writeFile('./dist/index.md', generateMarkdown(readmeObj), err => {
-      console.log("A README is created. Find it in the dist folder!")
-      if (err) throw err
+    fs.writeFile('./dist/index.md', generateMarkdown(fileContent), err => {
+      if (err) {
+        reject(err);
+        return;
+      }
+      resolve({
+        ok: true,
+        message: 'A README is created. Find it in the dist folder!'
+      });
     });
   });
 };
 
-
-
-// // TODO: Create a function to initialize app
-
+// initialize app
 function showAnswers() {
   inquirer.prompt(questions)
   .then(inquirerResponses => {
-    console.log(inquirerResponses)
-    readmeObj = inquirerResponses
+    writeFile(inquirerResponses);
+    console.log(`Your README has been created in the dist folder!`);
   }
 )}; 
 
-// function init() {
-//   return inquirer
-//   .prompt(questions)
-//   .then(inquirerResponse => {
-//     readmeObj = inquirerResponse
-//   })
-// }
-
-// init();
-
-showAnswers();
-
-// // // record video windows + g
+showAnswers()
