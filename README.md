@@ -35,6 +35,6 @@ This app can be found on GitHub at https://github.com/bcassellius/readme-generat
 
 <a name='questions'></a>
 ## Questions
-Have a question about this app? [Send an e-mail](bhilliker@gmail.com).
+Have a question about this app? [Send an e-mail](mailto:bhilliker@gmail.com).
 
 ##### This README was generated using [Bri's README generator](https://github.com/bcassellius/readme-generator).
