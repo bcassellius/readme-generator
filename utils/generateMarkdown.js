@@ -53,7 +53,7 @@ To initiate the app from your terminal, type ${data.usage}.
 ## License
 This application is covered by ${data.license}.
 
-<a name='contributing'></a>
+<a name='contributions'></a>
 ## Contributions
 ${data.contributing}
 
