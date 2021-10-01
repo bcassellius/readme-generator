@@ -32,7 +32,7 @@ const questions = [
   {
     type: 'input',
     name: 'installation',
-    message: 'Provide instructions for application installation.',
+    message: 'Provide requirements for application installation.',
     validate: projectInstallation => {
       if (projectInstallation){
         return true;
@@ -41,16 +41,18 @@ const questions = [
       }
     }
   },
+  {
+    type: 'input',
+    name: 'installation2',
+    message: 'The following programs must be installed for proper use.'
+  },
+  { type: 'input',
+    name: 'usage2',
+    message: 'Enter a link to the deployed app.'
+  },
   { type: 'input',
     name: 'usage',
-    message: 'Provide information for application usage.',
-    validate: projectUsage => {
-      if (projectUsage) {
-        return true;
-      } else {
-        console.log('Please provide information for usage!')
-      }
-    }
+    message: 'To initiate the app from your terminal, type ___________.'
   },
   {
     type: 'list',
@@ -61,19 +63,19 @@ const questions = [
   {
     type: 'input',
     name: 'contributing',
-    message: 'Provide information for contributions to this project.',
-    validate: projectContributing => {
-      if (projectContributing) {
+    message: '(Copy/Paste: This project was created by Bri Cassellius as part of coding bootcamp.) Then provide information for any other contributions to this project.',
+    validate: projectContribution => {
+      if (projectContribution){
         return true;
       } else {
-        console.log('Please provide information on contributions made to this project!')
+        console.log('Please provide installation instructions!')
       }
     }
-},
+  },
   {
     type: 'input',
     name: 'github',
-    message: 'Enter the GitHub username associated with your project.',
+    message: 'Enter the GitHub link associated with your project.',
     validate: githubInput => {
       if (githubInput) {
         return true;
@@ -86,13 +88,6 @@ const questions = [
     type: 'input',
     name: 'tests',
     message: 'Provide information on tests for your app here.',
-    validate: projectTests => {
-      if (projectTests) {
-        return true;
-      } else {
-        console.log('Please provide information on tests!')
-      }
-    }
   },
   {
     type:'input',
