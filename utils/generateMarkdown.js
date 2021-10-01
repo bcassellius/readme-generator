@@ -67,7 +67,7 @@ ${data.tests}
 
 <a name='questions'></a>
 ## Questions
-Have a question about this app? [Send an e-mail](${data.questions}).
+Have a question about this app? [Send an e-mail](mailto:${data.questions}).
 
 ##### This README was generated using [Bri's README generator](https://github.com/bcassellius/readme-generator).
   `
