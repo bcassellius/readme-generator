@@ -26,7 +26,7 @@ Once cloned to your local machine, initiate the app from your terminal by naviga
 This application is covered by MIT.
 
 <a name='contributing'></a>
-## Contributing
+## Contributions
 This project was created by Bri Cassellius as part of coding bootcamp. [Starter Code](https://github.com/coding-boot-camp/potential-enigma.git)
 
 <a name='github'></a>
