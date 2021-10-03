@@ -1,4 +1,5 @@
 const fs = require('fs');
+const { DefaultDeserializer } = require('v8');
 
 // a function that returns a license badge and url based on which license is passed in
 function renderLicenseBadge(data) {
@@ -31,7 +32,7 @@ function generateMarkdown(data) {
 * [Installation](#installation)
 * [Usage](#usage)
 * [License](#license)
-* [Contributions](#contributing)
+* [Contributions](#contributions)
 * [Github](#github)
 * [Tests](#tests)
 * [Questions](#questions)
@@ -47,7 +48,7 @@ ${data.installation}
 <a name='usage'></a>
 ## Usage
 The deployed app can be found at ${data.usage2}.
-To initiate the app from your terminal, type ${data.usage}.
+To initiate the app from your local computer, navigate in your terminal to where you have cloned the repository and type ${data.usage}.
 
 <a name='license'></a>
 ## License
@@ -55,7 +56,7 @@ This application is covered by ${data.license}.
 
 <a name='contributions'></a>
 ## Contributions
-${data.contributing}
+${data.contributions}
 
 <a name='github'></a>
 ## Github

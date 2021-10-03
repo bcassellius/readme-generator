@@ -41,18 +41,13 @@ const questions = [
       }
     }
   },
-  {
-    type: 'input',
-    name: 'installation2',
-    message: 'The following programs must be installed for proper use.'
-  },
-  { type: 'input',
+    { type: 'input',
     name: 'usage2',
     message: 'Enter a link to the deployed app.'
   },
   { type: 'input',
     name: 'usage',
-    message: 'To initiate the app from your terminal, type ___________.'
+    message: 'To initiate the app from your local computer, navigate in your terminal to the location you cloned the repository and type ___________.'
   },
   {
     type: 'list',
@@ -62,7 +57,7 @@ const questions = [
   },
   {
     type: 'input',
-    name: 'contributing',
+    name: 'contributions',
     message: '(Copy/Paste: This project was created by Bri Cassellius as part of coding bootcamp.) Then provide information for any other contributions to this project.',
     validate: projectContribution => {
       if (projectContribution){
